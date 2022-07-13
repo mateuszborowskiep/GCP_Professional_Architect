@@ -38,54 +38,54 @@ Check your instances
 curl http://[IP-ADDRESS]  
 
 
-Create a GKE cluster
+**Create a GKE cluster**
 gcloud container clusters create [CLUSTER-NAME] 
 
-Authenticate the cluster (after creating cluster, you need authentication credentials) 
-gcloud container clusters get-credentials [CLUSTER-NAME]
+**Authenticate the cluster (after creating cluster, you need authentication credentials) 
+**gcloud container clusters get-credentials [CLUSTER-NAME]
 
-Create a new Deployment (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) 
+**Create a new Deployment (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) **
 kubectl create deployment hello-server —image=gcr.io/google-samples/hello-app:1.0 // create deployment hello-server from the hello-app container image
 
-Create a Kubernetes Service (Kubernetes resource that lets you expose your app to external traffic
+**Create a Kubernetes Service (Kubernetes resource that lets you expose your app to external traffic**
 kubectl expose deployment hello-server —type=LoadBalancer —port 8080 // create a Compute Engine load balancer expose on port 8080 
-
-Deleting the cluster
+**
+Deleting the cluster**
 gcloud container clusters delete [CLUSTER-NAME] 
 
+**
+Set up Network and HTTP Load Balancers**
 
-Set up Network and HTTP Load Balancers
-
-Create a static external IP address for you load balancer
+**Create a static external IP address for you load balancer**
 gcloud compute addresses create network-lb-ip-1 \
  --region us-central1
 
-Add a legacy HTTP heart check resource:
+**Add a legacy HTTP heart check resource:**
 gcloud compute http-health-checks create basic-check
-
-Add the target pool (the same region as you instances) 
+**
+**Add the target pool (the same region as you instances) ****
 gcloud compute target-pools create www-pool \
     --region us-central1 --http-health-check basic-check
 
-Add the instances to the pool:
+**Add the instances to the pool:**
 gcloud compute target-pools add-instances www-pool \
     --instances [NAME-1], [NAME-2], [NAME-3]
-
-Add a forwarding rule for pool
+**
+Add a forwarding rule for pool**
 gcloud compute forwarding-rules create www-rule \
     --region us-central1 \
     --ports 80 \
     --address network-lb-ip-1 \
     --target-pool www-pool
 
-Test Sending traffic to your instances 
+**Test Sending traffic to your instances **
 View external IP address to www-rule forwarding 
 gcloud compute forwarding-rules describe www-rule --region us-central1
 
-Curl test
+**Curl test**
 while true; do curl -m1 [IP_ADDRESS]; done
-
-CREATE an HTTPS load balancer
+**
+CREATE an HTTPS load balancer**
 Create load balancer template
 gcloud compute instance-templates create lb-backend-template \
    --region=default \
@@ -100,11 +100,11 @@ apt-get install -y nginx
 service nginx start
 sed -i -- 's/nginx/Google Cloud Platform - '"\$HOSTNAME"'/' /var/www/html/index.nginx-debian.html”
 
-Create a managed instance group based on the template (https://cloud.google.com/compute/docs/instance-groups) 
+**Create a managed instance group based on the template (https://cloud.google.com/compute/docs/instance-groups) **
 gcloud compute instance-groups managed create lb-backend-group \
    --template=lb-backend-template --size=2 --zone=us-central1-a
-
-Create the fw-allow-health-check firewall rule. This is an ingress rule that allows traffic from the Google Cloud health checking systems (130.211.0.0/22 and 35.191.0.0/16)
+**
+Create the fw-allow-health-check firewall rule. This is an ingress rule that allows traffic from the Google Cloud health checking systems (130.211.0.0/22 and 35.191.0.0/16)**
 gcloud compute firewall-rules create allow-tcp-rule-585 \
     --network=default \
     --action=allow \
@@ -113,12 +113,12 @@ gcloud compute firewall-rules create allow-tcp-rule-585 \
     --target-tags=allow-health-check \
     --rules=tcp:80
 
-Set up global static external IP address 
+**Set up global static external IP address **
 gcloud compute addresses create lb-ipv4-1 \
     --ip-version=IPV4 \
     --global
 
-Check static IP address 
+**Check static IP address **
 gcloud compute addresses describe lb-ipv4-1 \
     --format="get(address)" \
     --global
