@@ -12,7 +12,7 @@ D. Execute queries against BigQuery with data stored in Cloud Storage via BigQue
 
 Appilication parts developed by separate project teams will communicate over RFC1918 addresses 
 A. Single project, same VPC
-B. Shared VPC, each project service of the Shared VPC project - VALID
+**B. Shared VPC, each project service of the Shared VPC project - VALID**
 C. Parts communicate using HTTPS
 D. Communicate over global load balancers, one per project 
 
@@ -20,4 +20,4 @@ Which solution should Dress4Win's real time trend analysis use in the cloud?
 A. Cloud DataFlow
 B. BigQuery
 C. A Hadoop cluster in Compute Engine
-D. Cloud DataProc - VALID 
+**D. Cloud DataProc - VALID **
