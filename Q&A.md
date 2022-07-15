@@ -40,4 +40,11 @@ B. Use linux dm-crypt tool for whole-disk encryption
 C. Customer Supplied Encryption Keys (CSEK) 
 D. Use openSSL for AES-256 file encryption
 
+Which of Dres4Win requirements will Stackdriver dashboards, metrics and reporting satisfy?
+A. Improve security by defining and anhering to a set of security and identity and Access Managment (IAM) best practices for Cloud 
+B. Encrypt data on the wire and at rest.
+**C. Analyze and optimize architecture for performance in the cloud - VALID (stacdriver metrics can be used for gather metrics and custom metrics) **
+D. Support multiple VPN connections between the production data center and cloud enviroment 
 
+How can a company connect cloud applications to an Oracle database in its data center to meet its business requirement of up to 10GB of transaction with an SLA 
+D. Partner Interconnect (provide SLA and and it's good to 10GB / Dedicated Interconnect is cost effective above 10GB up to 80Gb) 
