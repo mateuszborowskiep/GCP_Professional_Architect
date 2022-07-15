@@ -48,3 +48,9 @@ D. Support multiple VPN connections between the production data center and cloud
 
 How can a company connect cloud applications to an Oracle database in its data center to meet its business requirement of up to 10GB of transaction with an SLA 
 D. Partner Interconnect (provide SLA and and it's good to 10GB / Dedicated Interconnect is cost effective above 10GB up to 80Gb) 
+
+Implement back-out/rollback for website with 100s of VMs. Site has frequent critical updates
+C. Use managed instance groups with the "rolling-action start-update" command when starting a rolling update 
+
+A car reservation system has long-running transactions. Which one of the following deployment methods should be avoided 
+C. Introduce a blue-green deployment model (VALID AVOIDED! that model it's for rollback not long-running transactions) 
