@@ -21,3 +21,15 @@ A. Cloud DataFlow
 B. BigQuery
 C. A Hadoop cluster in Compute Engine
 **D. Cloud DataProc - VALID **
+
+Which network feature could help a company meet its goals to expand service to Asia while reducing latency
+A. HTTP/TCP Load Balancer
+B. Network TCP/UPD
+C. Cloud Router
+**D. Cloud Content Delivery Network (CDN) - VALID**
+
+How can you minimize the cost of storing security video files that are processed repeatedly for 30 days?
+**A. Regional class, then move to Coldline after 30 days - VALID**
+B. Nearline class, then move to Coldline after 30 days 
+C. Regional class, then move to Nearline after 30 days
+D. Multi-regional class, then move to Coldline after 30 days 
