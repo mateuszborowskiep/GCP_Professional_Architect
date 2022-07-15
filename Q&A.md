@@ -33,3 +33,11 @@ How can you minimize the cost of storing security video files that are processed
 B. Nearline class, then move to Coldline after 30 days 
 C. Regional class, then move to Nearline after 30 days
 D. Multi-regional class, then move to Coldline after 30 days 
+
+Dress4Win security has decided to standarize on AES256 for storage device encryption. Which strategy should be used with Compute Engine Instances?
+**A. Select SSD rather than HDD to ensure AES-256 encryption - VALID** (selection disk determines the default method for whole-disk encryption HDDs use AES-128, SSD use AES-256 
+B. Use linux dm-crypt tool for whole-disk encryption
+C. Customer Supplied Encryption Keys (CSEK) 
+D. Use openSSL for AES-256 file encryption
+
+
