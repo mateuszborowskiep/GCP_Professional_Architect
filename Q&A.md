@@ -11,40 +11,23 @@ C. Execute queries against data stored on daily partitioned BigQuery tables.
 D. Execute queries against BigQuery with data stored in Cloud Storage via BigQuery federation.
 
 Appilication parts developed by separate project teams will communicate over RFC1918 addresses 
-A. Single project, same VPC
 **B. Shared VPC, each project service of the Shared VPC project - VALID**
-C. Parts communicate using HTTPS
-D. Communicate over global load balancers, one per project 
 
 Which solution should Dress4Win's real time trend analysis use in the cloud? 
-A. Cloud DataFlow
-B. BigQuery
-C. A Hadoop cluster in Compute Engine
 **D. Cloud DataProc - VALID **
 
 Which network feature could help a company meet its goals to expand service to Asia while reducing latency
-A. HTTP/TCP Load Balancer
-B. Network TCP/UPD
-C. Cloud Router
 **D. Cloud Content Delivery Network (CDN) - VALID**
 
 How can you minimize the cost of storing security video files that are processed repeatedly for 30 days?
-**A. Regional class, then move to Coldline after 30 days - VALID**
-B. Nearline class, then move to Coldline after 30 days 
-C. Regional class, then move to Nearline after 30 days
-D. Multi-regional class, then move to Coldline after 30 days 
+**A. Regional class, then move to Coldline after 30 days - VALID** 
 
 Dress4Win security has decided to standarize on AES256 for storage device encryption. Which strategy should be used with Compute Engine Instances?
 **A. Select SSD rather than HDD to ensure AES-256 encryption - VALID** (selection disk determines the default method for whole-disk encryption HDDs use AES-128, SSD use AES-256 
-B. Use linux dm-crypt tool for whole-disk encryption
-C. Customer Supplied Encryption Keys (CSEK) 
-D. Use openSSL for AES-256 file encryption
+
 
 Which of Dres4Win requirements will Stackdriver dashboards, metrics and reporting satisfy?
-A. Improve security by defining and anhering to a set of security and identity and Access Managment (IAM) best practices for Cloud 
-B. Encrypt data on the wire and at rest.
 **C. Analyze and optimize architecture for performance in the cloud - VALID (stacdriver metrics can be used for gather metrics and custom metrics) **
-D. Support multiple VPN connections between the production data center and cloud enviroment 
 
 How can a company connect cloud applications to an Oracle database in its data center to meet its business requirement of up to 10GB of transaction with an SLA 
 D. Partner Interconnect (provide SLA and and it's good to 10GB / Dedicated Interconnect is cost effective above 10GB up to 80Gb) 
@@ -54,3 +37,8 @@ C. Use managed instance groups with the "rolling-action start-update" command wh
 
 A car reservation system has long-running transactions. Which one of the following deployment methods should be avoided 
 C. Introduce a blue-green deployment model (VALID AVOIDED! that model it's for rollback not long-running transactions) 
+
+A microservices has intermittent problems that burst logs. How can you trap it for live debugging 
+D. Set a log metric in Stackdriver logging, alert on it past a threshold (https://cloud.google.com/logging/docs) 
+
+
