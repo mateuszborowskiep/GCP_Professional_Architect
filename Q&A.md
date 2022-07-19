@@ -41,4 +41,7 @@ C. Introduce a blue-green deployment model (VALID AVOIDED! that model it's for r
 A microservices has intermittent problems that burst logs. How can you trap it for live debugging 
 D. Set a log metric in Stackdriver logging, alert on it past a threshold (https://cloud.google.com/logging/docs) 
 
+Last week a region had a 1% failure rate in web tier VMs? How should you respond? 
+C. Perform a root cause analysis, reviewing cloud provider and deployment details to prevent similar future failures
+
 
