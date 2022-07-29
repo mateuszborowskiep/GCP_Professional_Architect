@@ -3,55 +3,41 @@
 Cloud Shell - basic commands 
 
 List active accounts
-gcloud auth list  
+`gcloud auth list`  
 
 List project ID  
-gcloud config list project 
+`gcloud config list project` 
 
 Set a default compute zone 
-gcloud config set compute/zone us-east1-b // set default compute zone to us-central-a
+`gcloud config set compute/zone us-east1-b // set default compute zone to us-central-a`
 
 Set a default region
-gcloud config set compute/region us-central1 
+`gcloud config set compute/region us-central1` 
 
 
 Create a web server instances
-gcloud compute instances create [INSTANCE-NAME] \
---image-family debian-9 \
-  --image-project debian-cloud \
-  --zone us-central1-a \
-  --tags network-lb-tag \
-  --metadata startup-script="#! /bin/bash
-    sudo apt-get update
-    sudo apt-get install apache2 -y
-    sudo service apache2 restart
-    echo '<!doctype html><html><body><h1>www1</h1></body></html>' | tee /var/www/html/index.html"
+`gcloud compute instances create [INSTANCE-NAME] \
+`--image-family debian-9 \
+  `--image-project debian-cloud \`
+  `--zone us-central1-a \`
+  `--tags network-lb-tag \`
+  `--metadata startup-script="#! /bin/bash`
+    `sudo apt-get update`
+    `sudo apt-get install apache2 -y`
+    `sudo service apache2 restart`
+    `echo '<!doctype html><html><body><h1>www1</h1></body></html>' | tee /var/www/html/index.html"```
 
 Create a firewall rule to allow external traffic to the VM instances
-gcloud compute firewall-rules create www-firewall-network-lb \
-    --target-tags network-lb-tag --allow tcp:80
+`gcloud compute firewall-rules create www-firewall-network-lb \
+    `--target-tags network-lb-tag --allow tcp:80``
 	 
 List your instances (with external IP)
-gcloud compute instances list 
+`gcloud compute instances list` 
 
 Check your instances  
-curl http://[IP-ADDRESS]  
+`curl http://[IP-ADDRESS]`  
 
 
-**Create a GKE cluster**
-gcloud container clusters create [CLUSTER-NAME] 
-
-**Authenticate the cluster (after creating cluster, you need authentication credentials) 
-**gcloud container clusters get-credentials [CLUSTER-NAME]
-
-**Create a new Deployment (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) **
-kubectl create deployment hello-server —image=gcr.io/google-samples/hello-app:1.0 // create deployment hello-server from the hello-app container image
-
-**Create a Kubernetes Service (Kubernetes resource that lets you expose your app to external traffic**
-kubectl expose deployment hello-server —type=LoadBalancer —port 8080 // create a Compute Engine load balancer expose on port 8080 
-**
-Deleting the cluster**
-gcloud container clusters delete [CLUSTER-NAME] 
 
 **
 Set up Network and HTTP Load Balancers**

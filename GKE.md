@@ -5,6 +5,21 @@
 
 ![[Screenshot 2022-07-26 at 13.10.09.png]]
 
+**Create a GKE cluster**
+`gcloud container clusters create [CLUSTER-NAME]` 
+
+**Authenticate the cluster (after creating cluster, you need authentication credentials) 
+`gcloud container clusters get-credentials [CLUSTER-NAME]`
+
+**Create a new Deployment (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) **
+`kubectl create deployment hello-server —image=gcr.io/google-samples/hello-app:1.0 // create deployment hello-server from the hello-app container image`
+
+**Create a Kubernetes Service (Kubernetes resource that lets you expose your app to external traffic**
+`kubectl expose deployment hello-server —type=LoadBalancer —port 8080 // create a Compute Engine load balancer expose on port 8080` 
+
+**Deleting the cluster**
+`gcloud container clusters delete [CLUSTER-NAME]` 
+
 
 1. To deploy your first version of the application, run the following commands in Cloud Shell to get up and running:
 
