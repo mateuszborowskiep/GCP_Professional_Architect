@@ -1,59 +1,29 @@
-gcloud container clusters get-credentials echo-cweb --zone=us-central1-a
+**Kubernetes Architecture**
+![[Screenshot 2022-07-25 at 09.04.43.png]]
 
-kubectl create deployment echo-web --image=gcr.io/qwiklabs-resources/echo-app:v1
+**kubectl command syntax **
 
-docker push gcr.io/google-samples/echo-app:2.0
+![[Screenshot 2022-07-26 at 13.10.09.png]]
 
-kubectl update deployment echo-web --image=
-
-
-
-kubectl apply
-
-kubectl expose deployment echo-web --type=LoadBalancer --port 80 --target-port 8000
-
-Copy code from bucket 
-gsutil cp -r gs://spls/gsp021/* .
-
-
-Please follow the below steps:
 
 1. To deploy your first version of the application, run the following commands in Cloud Shell to get up and running:
 
-gcloud container clusters get-credentials echo-cluster --zone=us-central1-a
+`gcloud container clusters get-credentials echo-cluster --zone=us-central1-a`
 
-kubectl create deployment echo-web --image=gcr.io/qwiklabs-resources/echo-app:v1
+`kubectl create deployment echo-web --image=gcr.io/qwiklabs-resources/echo-app:v1`
 
-kubectl expose deployment echo-web --type=LoadBalancer --port 80 --target-port 8000
+`kubectl expose deployment echo-web --type=LoadBalancer --port 80 --target-port 8000`
 
-2. Download application tar for the lab
+2. Build image in the lab
 
-gsutil cp gs://$DEVSHELL_PROJECT_ID/echo-web-v2.tar.gz .
+`gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v2 .`
 
-3. Unzip the file
+3. Authorize cloud shell to access Kubernetes cluster
 
-tar -xvf echo-web-v2.tar.gz
+`gcloud container clusters get-credentials echo-cluster --zone us-central1-a`
 
-4. Build image in the lab
+4. Edit echo-web deployments
+`kubectl edit deploy echo-web`
 
-gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v2 .
-
-5. Authorize cloud shell to access Kubernetes cluster
-
-gcloud container clusters get-credentials echo-cluster --zone us-central1-a
-
-6. Edit echo-web deployments
-
-kubectl edit deploy echo-web
-
-Press i to edit the file
-
-7. Change container image to v2 from v1
-
-Press esc and paste :wq
-
-8. Scale replicas
-
-kubectl scale deploy echo-web --replicas=2
-
-9. Once you have successfully completed a section, wait for a minute or two and then click on the “Run Step” button. It will immediately evaluate your score.
+5. Scale replicas
+`kubectl scale deploy echo-web --replicas=2`
