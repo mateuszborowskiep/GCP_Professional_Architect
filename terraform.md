@@ -1,29 +1,29 @@
 Verify that Terraform is available 
-terraform 
+`terraform` 
 
 Inititialization run a new configuration 
-terraform init
+`terraform init`
 
 Create an execution plan
-terraform plan 
+`terraform plan` 
 
 Apply changes in the same directory as .tf file
-terraform apply
+`terraform apply`
 
 Inspect current state
-terraform show
+`terraform show`
 
 Import module 
-terraform import module.instances-PROJECT-ID ./modules/instances
+`terraform import module.instances-PROJECT-ID ./modules/instances`
 
 Recreate the instance
-terraform taint NAME_INSTANCE
+`terraform taint NAME_INSTANCE`
 
 Destroy infrastructure 
-terraform destroy
+`terraform destroy`
 
 Refresh the state
-terraform refresh
+`terraform refresh`
 
 Modules registry, provision an example environment
 https://registry.terraform.io/modules/terraform-google-modules/network/google/3.3.0 

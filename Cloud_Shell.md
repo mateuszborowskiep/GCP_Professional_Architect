@@ -1,4 +1,4 @@
-GCP Notes
+**GCP Notes**
 
 Cloud Shell - basic commands 
 
