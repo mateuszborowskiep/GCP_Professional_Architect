@@ -29,7 +29,7 @@ Modules registry, provision an example environment
 https://registry.terraform.io/modules/terraform-google-modules/network/google/3.3.0 
 
 Create resource in file with extention .tf example instance.tf 
-resource "google_compute_instance" "terraform" {
+`resource "google_compute_instance" "terraform" {
   project      = "<PROJECT_ID>"
   name         = "terraform"
   machine_type = "n1-standard-1"
@@ -158,4 +158,4 @@ variable "zone" {
 variable "project_id" {
   description = "The project ID to host the network in"
   default     = "FILL IN YOUR PROJECT ID HERE"
-}
+}`
