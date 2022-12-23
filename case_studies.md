@@ -1,5 +1,5 @@
 **EHR HEALTCARE**
-![[images/EHR_Healthcare.png]]
+![images/EHR_Healthcare.png]
 
 **Helicopter Racing**![[Helicopter_Racing_League.png]]
 
