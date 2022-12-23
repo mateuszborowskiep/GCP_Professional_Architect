@@ -3,7 +3,7 @@
 
 **kubectl command syntax **
 
-![[Screenshot 2022-07-26 at 13.10.09.png]]
+![Demo Animation](../images/Screenshot 2022-07-26 at 13.10.09.png?raw=true)
 
 **Create a GKE cluster**
 `gcloud container clusters create [CLUSTER-NAME]` 
